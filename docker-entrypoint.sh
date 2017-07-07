@@ -1,4 +1,6 @@
 #!/bin/bash
+# If the settings file variable has been set
+# overwrite the contents of the settings, api and session keys
 if [ ! -z ${SETTINGS_FILE:-} ]; then
     \cp -rf ${SETTINGS_FILE} settings.json
 fi
