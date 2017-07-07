@@ -1,7 +1,7 @@
 FROM       centos:7
 MAINTAINER Jose Castro Leon <jose.castro.leon@cern.ch>
 
-ENV PLUGINS ep_adminpads ep_headings ep_markdown git+https://github.com/Piotr-Pht-Jasiek/ep_padlist.git#b48973cb49a0f55a46ee32db3d4ab800be4ad887
+ENV PLUGINS ep_adminpads ep_headings ep_markdown git+https://github.com/Piotr-Pht-Jasiek/ep_padlist.git#b48973cb49a0f55a46ee32db3d4ab800be4ad887 git+https://gitlab.cern.ch/cloud-infrastructure/ep_oauth2.git
 
 # Update everything
 RUN yum -y update && yum clean all
