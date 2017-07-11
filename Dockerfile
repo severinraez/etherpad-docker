@@ -7,14 +7,13 @@ ENV PLUGINS ep_adminpads ep_headings ep_markdown git+https://github.com/Piotr-Ph
 RUN yum -y install epel-release && \
     yum -y install openssl npm node git
 
-RUN mkdir /var/lib/etherpad
 WORKDIR   /var/lib/etherpad
 
 # Grab the latest Git version and install deps and plugins
 RUN cd /var/lib && \
-    git clone https://gitlab.cern.ch/cloud-infrastructure/etherpad-lite.git etherpad && \
-    /var/lib/etherpad/bin/installDeps.sh && \
-    npm --silent install $PLUGINS
+    git clone https://gitlab.cern.ch/cloud-infrastructure/etherpad-lite.git etherpad
+RUN /var/lib/etherpad/bin/installDeps.sh
+RUN npm --silent install $PLUGINS
 
 # Add settings.json
 COPY settings.json ./
